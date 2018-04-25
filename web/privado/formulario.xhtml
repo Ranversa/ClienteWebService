@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:form id="formEdicao">
+        <h:panelGroup rendered="#{controleCompra.editando}">
+            <div class="ui-fluid">
+                <p:messages/>
+                <p:panelGrid columns="2" columnClasses="ui-grid-col-2, ui-grid-col-20"
+                             layout="grid" styleClass="ui-panelgrid-blank">
+                    <f:facet name="header">
+                        <p:outputLabel value="Edição de Compras"/>
+                    </f:facet>
+                    <p:outputLabel for="txtID" value="ID"/>
+                    <p:inputText id="txtID" value="#{controleCompra.objeto.id}" readonly="true"
+                                 size="10"/>
+                    <p:outputLabel for="txtCliente" value="Cliente: "/>
+                    <p:inputText id="txtCliente" value="#{controleCompra.objeto.cliente}" 
+                                 size="50" maxlength="50"/>
+                    <p:outputLabel for="txtCepDestino" value="CEP destino: "/>
+                    <p:inputText id="txtCepDestino" value="#{controleCompra.objeto.cepDestino}"
+                                 size="12" maxlength="10"/>
+                    <p:outputLabel for="txtCepOrigem" value="CEP origem: "/>
+                    <p:inputText id="txtCepOrigem" value="#{controleCompra.objeto.cepOrigem}"
+                                 size="5" maxlength="5"/>
+                    <p:outputLabel for="txtFrete" value="Frete: "/>
+                    <p:inputText id="txtFrete" value="#{controleCompra.objeto.frete}"
+                                 size="5" maxlength="5"/>   
+                    <p:outputLabel for="txtPrazo" value="Prazo: "/>
+                    <p:inputText id="txtPrazo" value="#{controleCompra.objeto.prazoEntrega}"
+                                 size="5" maxlength="5"/>   
+                    <p:outputLabel for="txtValor" value="Valor: "/>
+                    <p:inputText id="txtValor" value="#{controleCompra.objeto.valor}"
+                                 size="5" maxlength="5"/>   
+                    <p:commandButton value="Salvar" icon="ui-icon-disk"
+                                     actionListener="#{controleCompra.salvar()}"
+                                     update="formEdicao :formListagem"/>
+                </p:panelGrid>
+            </div>
+        </h:panelGroup>
+    </h:form>
+</html>
+
